@@ -1,0 +1,100 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  line-height: 1.5;
+}
+
+h1,h2,h3,h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.outlet-container {
+  width: 800px;
+  margin: 0 auto;
+  min-height: 80vh;
+}
+
+.header {
+  display: flex;
+  padding: 1em;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header nav {
+  display: flex;
+  gap: 2em;
+  align-items: end;
+  font-size: 1.5rem;
+  
+}
+
+.logo {
+  font-size: 2rem;
+}
+
+.addNewTodo-page {
+  min-height: 80vh;
+  display: flex;
+  width: 600px;
+}
+
+.addTodo-form {
+  display: flex;
+  margin: auto;
+  gap: 1em;
+  flex-direction: column;
+  width: 600px;
+}
+
+
+.addTodo-form button {
+  padding: 0.5em 1em;
+  display: block;
+  width: 400px;
+}
+
+.form-item {
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+  width: 600px;
+  margin-bottom: 1em;
+}
+
+.form-item label {
+  font-size: 1.2rem;
+  padding: 0.5em 0;
+}
+
+.form-item input {
+  font-size: 1.1rem;
+  padding: 0.5em;
+  width: 100%;
+}
+
+.todos-parent {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  font-size: 1.2rem;
+  padding: 2em 0;
+}
+
+.todos-parent  a:hover {
+  text-decoration: underline;
+}
+
+.singleTodo-page {
+  padding: 10em 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
