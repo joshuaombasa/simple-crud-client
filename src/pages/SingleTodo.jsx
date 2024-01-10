@@ -23,7 +23,25 @@ export default function SingleTodo() {
             }
         }
         getTodo()
-    },[])
+    }, [])
+
+    async function deleteTodo(id) {
+        try {
+            const res = await fetch(`http://localhost:4001/api/deleteTodo/${id}`, {method: 'DELETE'})
+    
+            const data =  await res.json()
+            console.log(data)
+    
+            if (!res.ok) {
+                console.log('Failed to  delete')
+            }
+
+            setRefresh(true)
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     if (!todo) {
         return (
@@ -35,12 +53,14 @@ export default function SingleTodo() {
 
     return (
         <div className="singleTodo-page">
-            <Link 
+            <Link
                 to=".."
                 relative="path"
             > &larr; Back to all todos</Link>
             <h3>{todo.task}</h3>
             <p>{todo.description}</p>
+            <Link className="update-link" to={`/updateTodo/${todo._id}`} >Update</Link>
+            <button className="delete-todo" onClick={() => deleteTodo(todo._id)}>Delete</button>
         </div>
     )
 }
