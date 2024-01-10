@@ -8,6 +8,7 @@ import NotFound from './pages/NotFound'
 import SingleTodo from './pages/SingleTodo'
 import Todos from './pages/Todos'
 import AddNewTodo from './pages/AddNewTodo'
+import UpdateTodo from './pages/UpdateTodo'
 
 function App() {
   const router = createBrowserRouter(createRoutesFromElements(
@@ -16,6 +17,7 @@ function App() {
       <Route path='todos' element={<Todos/>}/>
       <Route path='todos/:id' element={<SingleTodo/>}/>
       <Route path='addTodo' element={<AddNewTodo/>}/>
+      <Route path='updateTodo/:id' element={<UpdateTodo/>}/>
       <Route path='*' element={<NotFound/>}/>
     </Route>
   ))
