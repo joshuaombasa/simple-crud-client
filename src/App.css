@@ -98,3 +98,27 @@ h1,h2,h3,h4 {
   flex-direction: column;
   gap: 1em;
 }
+
+.update-link {
+  color: green;
+  margin-left: 2em;
+  width: 50px;
+}
+
+.todo-link {
+  width: 400px;
+  display: inline-block;
+}
+
+.delete-todo {
+  background-color: unset;
+  border: none;
+  color: red;
+  margin-left: 2em;
+  width: 50px;
+  font-size: 1.1rem;
+}
+
+.delete-todo:hover {
+  text-decoration: underline;
+}
