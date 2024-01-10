@@ -5,6 +5,8 @@ export default function Todos() {
 
     const [todos, setTodos] = useState([])
 
+    const [refresh, setRefresh] = useState(false)
+
     useEffect(() => {
         async function getTodos() {
             try {
@@ -17,7 +19,7 @@ export default function Todos() {
         }
 
         getTodos()
-    }, [])
+    }, [refresh])
 
     if (todos.length === 0) {
         return (
@@ -25,8 +27,30 @@ export default function Todos() {
         )
     }
 
+    async function deleteTodo(id) {
+        try {
+            const res = await fetch(`http://localhost:4001/api/deleteTodo/${id}`, {method: 'DELETE'})
+    
+            const data =  await res.json()
+            console.log(data)
+    
+            if (!res.ok) {
+                console.log('Failed to  delete')
+            }
+
+            setRefresh(true)
+            
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     const todoElements = todos.map(item => (
-        <Link to={item._id} key={item._id}>{item.task}</Link>
+        <div key={item._id} className="">
+            <Link className="todo-link" to={item._id} >{item.task}</Link>
+            <Link className="update-link" to={`/updateTodo/${item._id}`} >Update</Link>
+            <button className="delete-todo" onClick={() => deleteTodo(item._id)}>Delete</button>
+        </div>
     ))
 
     return (
