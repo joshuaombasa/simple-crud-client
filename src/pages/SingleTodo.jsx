@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams,redirect, useNavigate } from "react-router-dom";
 
 export default function SingleTodo() {
 
     const [todo, setTodo] = useState(null)
 
     const params = useParams()
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         async function getTodo() {
@@ -31,12 +33,13 @@ export default function SingleTodo() {
     
             const data =  await res.json()
             console.log(data)
+            navigate('/')
     
             if (!res.ok) {
                 console.log('Failed to  delete')
             }
 
-            setRefresh(true)
+            // setRefresh(true)
             
         } catch (error) {
             console.log(error)
